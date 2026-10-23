@@ -1,0 +1,212 @@
+<!doctype html>
+<html style="      ">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>学习方法优先级表（修订版）</title>
+  <meta name="description" content="这是一份根据权威综述、元分析和国家科学院综合报告整理的实用排序，面向一般课程学习、长期复习和备考。同一优先级的方法可以并列。">
+
+
+  <style>
+    /* 分享版布局：桌面端利用宽屏，手机端将宽表格改成可顺读的卡片。 */
+    html { background: #ffffff; }
+    body {
+      width: calc(100% - 32px) !important;
+      max-width: 1800px !important;
+      box-sizing: border-box !important;
+      margin: 0 auto !important;
+      padding: 24px 16px !important;
+    }
+    #output { width: 100% !important; }
+    #output > .container {
+      width: 100% !important;
+      max-width: none !important;
+      box-sizing: border-box !important;
+      padding: 24px 28px !important;
+    }
+    #output > .container > section:has(table) {
+      width: 100% !important;
+      max-width: none !important;
+      box-sizing: border-box !important;
+      padding: 0 !important;
+      border: 0 !important;
+      overflow: visible !important;
+      background: transparent !important;
+    }
+    .preview-table {
+      width: 100% !important;
+      max-width: none !important;
+      table-layout: fixed !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+    }
+    .preview-table th,
+    .preview-table td {
+      white-space: normal !important;
+      word-break: break-word !important;
+      overflow-wrap: anywhere !important;
+      vertical-align: top !important;
+      line-height: 1.65 !important;
+    }
+    .preview-table th:nth-child(1),
+    .preview-table td:nth-child(1) { width: 5% !important; }
+    .preview-table th:nth-child(2),
+    .preview-table td:nth-child(2) { width: 14% !important; }
+    .preview-table th:nth-child(3),
+    .preview-table td:nth-child(3) { width: 22% !important; }
+    .preview-table th:nth-child(4),
+    .preview-table td:nth-child(4) { width: 19% !important; }
+    .preview-table th:nth-child(5),
+    .preview-table td:nth-child(5) { width: 19% !important; }
+    .preview-table th:nth-child(6),
+    .preview-table td:nth-child(6) { width: 21% !important; }
+
+    @media (max-width: 760px) {
+      body {
+        width: 100% !important;
+        padding: 10px !important;
+        font-size: 15px !important;
+      }
+      #output > .container {
+        padding: 16px 14px !important;
+        border-radius: 18px !important;
+      }
+      #output > .container h1 {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 0 18px !important;
+        padding: 10px 12px !important;
+        font-size: 22px !important;
+        line-height: 1.35 !important;
+      }
+      #output > .container > section:has(table) {
+        margin: 0 !important;
+      }
+      .preview-table,
+      .preview-table tbody,
+      .preview-table tr,
+      .preview-table td {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .preview-table td:nth-child(n) {
+        width: 100% !important;
+      }
+      .preview-table thead { display: none !important; }
+      .preview-table tr {
+        margin: 16px 0 !important;
+        padding: 4px 0 !important;
+        border: 1px solid #d9e1e8 !important;
+        border-radius: 14px !important;
+        background: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(15, 76, 129, 0.06) !important;
+      }
+      .preview-table td {
+        display: block !important;
+        padding: 10px 12px !important;
+        border: 0 !important;
+        line-height: 1.65 !important;
+      }
+      .preview-table td::before {
+        display: block !important;
+        margin-bottom: 4px !important;
+        color: #0F4C81 !important;
+        font-weight: 700 !important;
+      }
+      .preview-table td:nth-child(1) {
+        display: flex !important;
+        justify-content: flex-start !important;
+        padding-bottom: 2px !important;
+      }
+      .preview-table td:nth-child(1)::before { content: none !important; }
+      .preview-table td:nth-child(2)::before { content: "方法与具体做法"; }
+      .preview-table td:nth-child(3)::before { content: "最适合的具体场景"; }
+      .preview-table td:nth-child(4)::before { content: "适用范围"; }
+      .preview-table td:nth-child(5)::before { content: "不适用范围"; }
+      .preview-table td:nth-child(6)::before { content: "研究证据"; }
+    }
+    .preview-table tbody tr[data-priority] > td:first-child {
+      text-align: center !important;
+      vertical-align: middle !important;
+      border-left-width: 4px !important;
+      border-left-style: solid !important;
+    }
+    .preview-table tbody tr[data-priority] > td:first-child strong {
+      display: inline-block !important;
+      font-weight: 700 !important;
+      line-height: 1.2 !important;
+    }
+    .preview-table tbody tr[data-priority="P1"] > td:first-child { border-left-color: #2E7D32 !important; }
+    .preview-table tbody tr[data-priority="P1"] > td:first-child strong { color: #2E7D32 !important; }
+    .preview-table tbody tr[data-priority="P2"] > td:first-child { border-left-color: #1565C0 !important; }
+    .preview-table tbody tr[data-priority="P2"] > td:first-child strong { color: #1565C0 !important; }
+    .preview-table tbody tr[data-priority="P3"] > td:first-child { border-left-color: #B26A00 !important; }
+    .preview-table tbody tr[data-priority="P3"] > td:first-child strong { color: #B26A00 !important; }
+    .preview-table tbody tr[data-priority="P4"] > td:first-child { border-left-color: #202124 !important; }
+    .preview-table tbody tr[data-priority="P4"] > td:first-child strong {
+      color: #202124 !important;
+      font-weight: 400 !important;
+    }
+    @media (max-width: 760px) {
+      .preview-table tbody tr[data-priority] > td:first-child {
+        text-align: left !important;
+        border-left: 0 !important;
+      }
+    }
+
+    /* 优先级配色：标签、方法标题和左侧标记保持同一语义颜色。 */
+    #output > .container > h1.h1 { color: #ffffff !important; }
+    #output > .container > ul li:nth-child(1) > strong { color: #2E7D32 !important; }
+    #output > .container > ul li:nth-child(2) > strong { color: #1565C0 !important; }
+    #output > .container > ul li:nth-child(3) > strong { color: #F4B400 !important; }
+    #output > .container > ul li:nth-child(4) > strong { color: #D32F2F !important; font-weight: 700 !important; }
+
+    .preview-table tbody tr[data-priority="P1"] > td:nth-child(2) > strong:first-child { color: #2E7D32 !important; }
+    .preview-table tbody tr[data-priority="P2"] > td:nth-child(2) > strong:first-child { color: #1565C0 !important; }
+    .preview-table tbody tr[data-priority="P3"] > td:nth-child(2) > strong:first-child { color: #F4B400 !important; }
+    .preview-table tbody tr[data-priority="P4"] > td:nth-child(2) > strong:first-child { color: #D32F2F !important; font-weight: 700 !important; }
+
+    .preview-table tbody tr[data-priority="P3"] > td:first-child { border-left-color: #F4B400 !important; }
+    .preview-table tbody tr[data-priority="P3"] > td:first-child strong { color: #F4B400 !important; }
+    .preview-table tbody tr[data-priority="P4"] > td:first-child { border-left-color: #D32F2F !important; }
+    .preview-table tbody tr[data-priority="P4"] > td:first-child strong {
+      color: #D32F2F !important;
+      font-weight: 700 !important;
+    }
+
+    /* 适用范围、不适用范围和研究证据保持黑色，避免证据列被链接蓝色抢走层级。 */
+    .preview-table tbody tr[data-priority] > td:nth-child(4) strong,
+    .preview-table tbody tr[data-priority] > td:nth-child(5) strong,
+    .preview-table tbody tr[data-priority] > td:nth-child(6) strong,
+    .preview-table tbody tr[data-priority] > td:nth-child(6) a {
+      color: #3f3f3f !important;
+    }
+    .preview-table tbody tr[data-priority] > td:nth-child(6) {
+      color: #3f3f3f !important;
+    }
+    @media (max-width: 760px) {
+      .preview-table td::before { color: #3f3f3f !important; }
+    }
+  </style>
+</head>
+<body style="padding: 24px; background: #ffffff; max-width: 860px; margin: 0 auto; text-align: left; font-family: -apple-system-font,BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB , Microsoft YaHei UI , Microsoft YaHei ,Arial,sans-serif; font-size: 15px; line-height: 2;">
+  <div id="output">
+<section class="container" style="text-align: left; font-family: -apple-system-font,BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB , Microsoft YaHei UI , Microsoft YaHei ,Arial,sans-serif; font-size: 15px; line-height: 2; letter-spacing: 0px; font-weight: 400; background-color: rgba(250, 249, 245, 1); border: 1px solid rgba(255, 255, 255, 0.01); border-radius: 25px; padding: 12px 12px;"><h1 class="h1" data-heading="true" style="display: table; padding: 0.3em 1em; margin: 20px auto; color: #3f3f3f; background: #0F4C81; border-radius: 15px; font-size: 28px; font-weight: bold; text-align: center; margin-top: 0 !important;">学习方法优先级表（修订版）</h1><p class="p" style="margin: 20px 0; letter-spacing: 0.1em; color: #3f3f3f; line-height: 2; letter-spacing: 0px; font-size: 15px; font-weight: 400; word-break: break-all;">这是一份根据权威综述、元分析和国家科学院综合报告整理的实用排序，面向一般课程学习、长期复习和备考。同一优先级的方法可以并列。</p><ul class="ul" style="list-style: circle; padding-left: 1em; margin-left: 0; color: #3f3f3f; line-height: 2;"><li class="listitem" style="display: block; margin: 0.2em 8px; color: #3f3f3f;">• <strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P1：</strong>优先建立的基本方法</li><li class="listitem" style="display: block; margin: 0.2em 8px; color: #3f3f3f;">• <strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P2：</strong>特定任务中的主力方法</li><li class="listitem" style="display: block; margin: 0.2em 8px; color: #3f3f3f;">• <strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P3：</strong>有条件地选用</li><li class="listitem" style="display: block; margin: 0.2em 8px; color: #3f3f3f;">• <strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P4：</strong>辅助方法</li></ul>
+        <section style="text-align: left; font-family: -apple-system-font,BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB , Microsoft YaHei UI , Microsoft YaHei ,Arial,sans-serif; font-size: 15px; line-height: 2; letter-spacing: 0px; font-weight: 400; background-color: rgba(250, 249, 245, 1); border: 1px solid rgba(255, 255, 255, 0.01); border-radius: 25px; padding: 12px 12px; max-width: 100%; overflow: auto;">
+          <table class="preview-table" style="color: #3f3f3f; margin-top: 0 !important;">
+            <thead style="font-weight: bold; color: #3f3f3f;"><th class="th" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all; background: color-mix(in srgb, #0F4C81 10%, transparent);">优先级</th><th class="th" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all; background: color-mix(in srgb, #0F4C81 10%, transparent);">方法与具体做法</th><th class="th" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all; background: color-mix(in srgb, #0F4C81 10%, transparent);">最适合的具体场景</th><th class="th" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all; background: color-mix(in srgb, #0F4C81 10%, transparent);">适用范围</th><th class="th" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all; background: color-mix(in srgb, #0F4C81 10%, transparent);">不适用范围</th><th class="th" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all; background: color-mix(in srgb, #0F4C81 10%, transparent);">研究证据</th></thead>
+            <tbody><tr class="tr" data-priority="P1"><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P1</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">自测／提取练习</strong><br>合上材料，回忆并作答，再核对答案。</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 英语词汇、语法和法律／历史术语<br>2. 医学、农学和心理学术语<br>3. 数学、物理、化学、工程和计算机公式或概念……</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. <strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">已学过的内容</strong>需要长期保持<br>2. 任务要求<strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">独立回忆和作答</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. <strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">零基础内容</strong>还没有概念模型<br>2. 需要迁移到新题型，练习却只重复原题<br>3. 回忆后没有核对</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">支持：</strong><br>1. <a href="https://pubmed.ncbi.nlm.nih.gov/33683913/" title="Yang 等，2021，测试促进课堂学习的元分析" style="color: #0F4C81; text-decoration: none;">Yang 等，2021，测试促进课堂学习的元分析</a><br>2. <a href="https://learninglab.psych.purdue.edu/downloads/2006/2006_Roediger_Karpicke_PsychSci.pdf" title="Roediger 与 Karpicke，2006，提取练习与重读" style="color: #0F4C81; text-decoration: none;">Roediger 与 Karpicke，2006，提取练习与重读</a><br><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">研究边界：</strong><br>1. <a href="https://link.springer.com/article/10.1007/s10648-025-10035-1" title="Murray 等，2025，数学学习中的间隔与提取元分析" style="color: #0F4C81; text-decoration: none;">Murray 等，2025，数学学习中的间隔与提取元分析</a><br>2. <a href="https://pdf.retrievalpractice.org/transfer/Pan_Rickard_2018.pdf" title="Pan 与 Rickard，2018，提取练习的迁移边界" style="color: #0F4C81; text-decoration: none;">Pan 与 Rickard，2018，提取练习的迁移边界</a></td></tr><tr class="tr" data-priority="P1"><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P1</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">间隔练习</strong><br>把同一内容分散到不同日期复习。</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 英语词汇与句型的多日复习<br>2. 医学、农学、生物术语的分次回忆<br>3. 数学、理工、工程和计算机定义与命令的周计划复习……</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 目标是<strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">几天或几周后仍能记得</strong><br>2. 同一内容可以安排多次接触或提取</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 只需要当场完成的一次性任务<br>2. 内容还没有理解，只有机械重复</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">支持：</strong><br>1. <a href="https://escholarship.org/uc/item/3rr6q10c" title="Cepeda 等，2006，分散练习综述与定量综合" style="color: #0F4C81; text-decoration: none;">Cepeda 等，2006，分散练习综述与定量综合</a><br>2. <a href="https://link.springer.com/article/10.1007/s10648-020-09572-8" title="Latimier 等，2021，间隔提取练习元分析" style="color: #0F4C81; text-decoration: none;">Latimier 等，2021，间隔提取练习元分析</a><br>3. <a href="https://link.springer.com/article/10.1007/s10648-025-10035-1" title="Murray 等，2025，数学学习元分析" style="color: #0F4C81; text-decoration: none;">Murray 等，2025，数学学习元分析</a><br><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">研究边界：</strong><br>1. <a href="https://link.springer.com/article/10.1007/s10648-020-09572-8" title="Latimier 等，2021，逐步拉长间隔并非总体必胜" style="color: #0F4C81; text-decoration: none;">Latimier 等，2021，逐步拉长间隔并非总体必胜</a></td></tr><tr class="tr" data-priority="P1"><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P1</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">纠错反馈</strong><br>作答后核对错因和依据，再做一次。</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 数学、物理、化学计算与推导<br>2. 编程调试、工程设计和数据分析<br>3. 医学诊断、农学病虫害识别、法律案例……</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 答案标准<strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">清楚可判定</strong><br>2. 作答后有机会<strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">根据反馈重做或应用</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 只有“对／错”或泛泛表扬<br>2. 反馈与题目无关，后面也没有重做机会</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">支持：</strong><br>1. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6987456/" title="Wisniewski 等，2020，反馈元分析" style="color: #0F4C81; text-decoration: none;">Wisniewski 等，2020，反馈元分析</a><br><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">研究边界：</strong><br>1. <a href="https://link.springer.com/article/10.1007/s10648-026-10117-8" title="Kandemir 等，2026，反馈时间元分析" style="color: #0F4C81; text-decoration: none;">Kandemir 等，2026，反馈时间元分析</a><br>2. <a href="https://doi.org/10.1037/0033-2909.119.2.254" title="Kluger 与 DeNisi，1996，反馈可能产生反效果" style="color: #0F4C81; text-decoration: none;">Kluger 与 DeNisi，1996，反馈可能产生反效果</a></td></tr><tr class="tr" data-priority="P2"><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P2</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">研究例题</strong><br>分析完整解法，随后独立做相似题和变式题。</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 数学、物理、化学的新题型<br>2. 计算机算法、编程接口和工程操作<br>3. 医学诊断、农学栽培流程和法律案例……</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 学习<strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">新程序和新题型</strong><br>2. 初学者需要先看到完整步骤</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 已经熟练却继续只看完整答案<br>2. 只记住例题数字，没有抽出解题结构</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">支持：</strong><br>1. <a href="https://link.springer.com/article/10.1007/s10648-023-09745-1" title="Barbieri 等，2023，数学例题效应元分析" style="color: #0F4C81; text-decoration: none;">Barbieri 等，2023，数学例题效应元分析</a><br><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">研究边界：</strong><br>1. <a href="https://doi.org/10.1207/S15326985EP3801_4" title="Kalyuga 等，2003，专家反转效应" style="color: #0F4C81; text-decoration: none;">Kalyuga 等，2003，专家反转效应</a></td></tr><tr class="tr" data-priority="P2"><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P2</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">自我解释</strong><br>说明步骤为什么成立、概念如何相连。</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 历史、法律、经济和语言规则的因果关系<br>2. 数学、物理、化学和生物机制<br>3. 工程系统、计算机架构、医学与农学过程……</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 需要理解<strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">概念关系和因果机制</strong><br>2. 解题步骤需要说清<strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">依据</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 姓名、日期、单个术语等孤立事实<br>2. 没有先备知识，只能凭感觉编解释</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">支持：</strong><br>1. <a href="https://link.springer.com/article/10.1007/s10648-018-9434-x" title="Bisra 等，2018，自我解释元分析" style="color: #0F4C81; text-decoration: none;">Bisra 等，2018，自我解释元分析</a><br><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">研究边界：</strong><br>1. <a href="https://onlinelibrary.wiley.com/doi/10.1002/acp.70174" title="Harders 与 Ebersbach，2026，事实知识中的自我解释未显示因果优势" style="color: #0F4C81; text-decoration: none;">Harders 与 Ebersbach，2026，事实知识中的自我解释未显示因果优势</a></td></tr><tr class="tr" data-priority="P2"><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P2</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">精细追问</strong><br>围绕陈述追问“为什么”，连接新旧知识。</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 历史、政治、经济和文学中的因果关系<br>2. 生物、医学、农学中的机制与条件<br>3. 工程设计、计算机系统和理科结论的形成……</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 材料包含<strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">因果、机制或解释关系</strong><br>2. 学习者已有足够背景知识回答“为什么”</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 任意配对和约定名称等没有因果依据的信息<br>2. 没有材料支持却强行编理由</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">支持：</strong><br>1. <a href="https://onlinelibrary.wiley.com/doi/10.1002/tea.20378" title="Smith 等，2010，科学教材中的问题式阅读" style="color: #0F4C81; text-decoration: none;">Smith 等，2010，科学教材中的问题式阅读</a><br><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">研究边界：</strong><br>1. <a href="https://eric.ed.gov/?id=EJ436873" title="Martin 与 Pressley，1991，精细追问效果取决于问题性质" style="color: #0F4C81; text-decoration: none;">Martin 与 Pressley，1991，精细追问效果取决于问题性质</a></td></tr><tr class="tr" data-priority="P2"><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P2</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">交错练习</strong><br>混合相似题型，每次先判断方法。</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 数学、物理、化学的相似题型<br>2. 编程算法、工程故障和设计方案的辨别<br>3. 医学诊断、农学病虫害和语言用法的区分……</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 基本方法已经分别学会<br>2. 目标是<strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">辨别题型、选择策略或区分类别</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 各基础方法都还不会<br>2. 把完全无关的科目随机切换</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">研究证据：</strong><br>1. <a href="https://pubmed.ncbi.nlm.nih.gov/31556629/" title="Brunmair 与 Richter，2019，交错学习元分析" style="color: #0F4C81; text-decoration: none;">Brunmair 与 Richter，2019，交错学习元分析</a><br>2. 数学和视觉类别常有收益<br>3. 说明性文本结果不明确，部分词语学习任务更适合集中练习</td></tr><tr class="tr" data-priority="P2"><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P2</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">概念图</strong><br>用节点和关系词组织概念、层级和因果。</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 历史、法律、文学和语言材料的结构<br>2. 生物、医学、农学的机制与分类<br>3. 工程系统、计算机架构和理科概念关系……</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 概念之间存在<strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">结构关系</strong><br>2. 需要整合一个章节或多段材料</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 大量彼此孤立的事实<br>2. 主要时间花在配色、排版和装饰</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">支持：</strong><br>1. <a href="https://link.springer.com/article/10.1007/s10648-017-9403-9" title="Schroeder 等，2018，概念图元分析" style="color: #0F4C81; text-decoration: none;">Schroeder 等，2018，概念图元分析</a><br><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">研究边界：</strong><br>1. <a href="https://link.springer.com/article/10.1007/s10648-025-10076-6" title="Gonçalves 等，2025，提取练习与精细加工的直接比较" style="color: #0F4C81; text-decoration: none;">Gonçalves 等，2025，提取练习与精细加工的直接比较</a></td></tr><tr class="tr" data-priority="P2"><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P2</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">生成性绘图</strong><br>画出结构、过程或空间关系，再核对。</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 物理、化学、生物和数学结构<br>2. 工程装置、计算机流程和数据结构<br>3. 医学解剖、农学生态和地理空间关系……</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 内容可以用<strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">结构图、流程图或空间图</strong>表达<br>2. 有标准图或反馈可以核对准确性</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 内容高度抽象，难以准确外化<br>2. 基础不足，画图本身占满认知资源</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">支持：</strong><br>1. <a href="https://link.springer.com/article/10.1007/s10956-019-09807-6" title="Cromley 等，2020，生成性绘图元分析" style="color: #0F4C81; text-decoration: none;">Cromley 等，2020，生成性绘图元分析</a><br><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">研究边界：</strong><br>1. <a href="https://doi.org/10.1016/j.chb.2008.12.010" title="Leutner 等，2009，绘图与心理想象的认知负荷边界" style="color: #0F4C81; text-decoration: none;">Leutner 等，2009，绘图与心理想象的认知负荷边界</a><br>2. <a href="https://link.springer.com/article/10.1007/s10648-025-10067-7" title="Leutner 与 Biele，2025，绘图需要整合支持" style="color: #0F4C81; text-decoration: none;">Leutner 与 Biele，2025，绘图需要整合支持</a></td></tr><tr class="tr" data-priority="P2"><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P2</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">讲给别人听／通过教学学习</strong><br>组织解释，接受追问并核对。</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 英语语法、文学主题和历史论证<br>2. 数学、物理、化学和生物机制<br>3. 工程、计算机、医学和农学流程……</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 需要组织概念并发现解释漏洞<br>2. 讲解对象会提问或提供纠错</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 只是逐字复述原文<br>2. 没有核对，却把流畅表达当成正确理解</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">支持：</strong><br>1. <a href="https://onlinelibrary.wiley.com/doi/10.1111/jpr.12221" title="Kobayashi，2019，准备教学与实际教学元分析" style="color: #0F4C81; text-decoration: none;">Kobayashi，2019，准备教学与实际教学元分析</a><br><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">研究边界：</strong><br>1. 研究显示收益会随互动方式、学习者年龄和任务设计变化，不能把所有复述都等同于有效教学</td></tr><tr class="tr" data-priority="P3"><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P3</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">归纳总结</strong><br>筛选重点，压缩成提纲或答案框架。</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 历史、法律、文学和政策长文<br>2. 数学、理科教材和实验报告<br>3. 工程、计算机、医学和农学资料……</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 学习目标是<strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">概括、摘要或整合</strong><br>2. 需要从长材料中筛选主要信息</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 只是逐句删短或抄写原文<br>2. 目标是学会解题程序，却没有独立练习</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">支持：</strong><br>1. <a href="https://www.nationalacademies.org/read/24783/chapter/7" title="National Academies，《How People Learn II》" style="color: #0F4C81; text-decoration: none;">National Academies，《How People Learn II》</a><br><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">研究边界：</strong><br>1. <a href="https://doi.org/10.1016/j.cedpsych.2023.102238" title="McNamara 等，2024，总结与多文档重读比较" style="color: #0F4C81; text-decoration: none;">McNamara 等，2024，总结与多文档重读比较</a></td></tr><tr class="tr" data-priority="P3"><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P3</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">预提问／预测试</strong><br>学习前先试答问题，再学习答案。</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 英语阅读、语法和词汇学习<br>2. 数学、物理、化学和生物章节<br>3. 工程、计算机、医学和农学新主题……</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 问题对应明确的学习目标<br>2. 作答后能看到<strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">正确答案和解释</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 没有后续答案和解释<br>2. 问题与真正要学的内容不一致</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">研究证据：</strong><br>1. <a href="https://link.springer.com/article/10.3758/s13423-023-02353-8" title="预提问效应元分析，2024" style="color: #0F4C81; text-decoration: none;">预提问效应元分析，2024</a><br>2. 被提前问到的知识收益较明显<br>3. 未被问到的知识总体收益不显著</td></tr><tr class="tr" data-priority="P3"><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P3</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">记笔记</strong><br>记录要点、关系、例子和疑问，供后续回忆。</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 英语、历史、法律课程的例子和疑问<br>2. 数学、理科实验和公式条件<br>3. 工程、计算机、医学和农学课程的流程与易错点……</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 需要留下<strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">外部记忆线索</strong><br>2. 笔记会被再次整理、回忆和使用</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 一边听一边逐字追记<br>2. 只保存笔记，从不主动回忆</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">研究证据：</strong><br>1. <a href="https://www.sciencedirect.com/science/article/pii/S0361476X04000621" title="Kobayashi，2005，记笔记编码效应元分析" style="color: #0F4C81; text-decoration: none;">Kobayashi，2005，记笔记编码效应元分析</a><br>2. 单纯记笔记的编码收益总体较小<br>3. 之后利用笔记复习，不能与记笔记当下的效果混为一谈</td></tr><tr class="tr" data-priority="P3"><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P3</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">关键词助记</strong><br>用声音线索和画面连接新词与含义。</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 英语词汇、词根和发音<br>2. 医学、农学、法律术语与缩写<br>3. 计算机命令、工程符号和其他任意配对……</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 词形和含义缺少自然联系<br>2. 目标是先建立<strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">快速记忆线索</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 需要理解因果、机制或解题原理<br>2. 只会认出关键词，不会主动说出术语</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">研究证据：</strong><br>1. <a href="https://onlinelibrary.wiley.com/doi/10.1002/acp.1287" title="Fritz 等，2007，关键词助记与提取练习比较" style="color: #0F4C81; text-decoration: none;">Fritz 等，2007，关键词助记与提取练习比较</a><br>2. 对外语词汇的特定任务有帮助<br>3. 需要主动产出时，提取练习更有优势</td></tr><tr class="tr" data-priority="P3"><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P3</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">心理意象／脑内想象</strong><br>在脑中形成场景、结构或操作过程。</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 英语情境、历史地理和文学场景<br>2. 生物、医学、农学结构与过程<br>3. 物理、工程、计算机架构和空间关系……</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 内容容易<strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">视觉化或空间化</strong><br>2. 已有足够知识构建准确画面</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 概念高度抽象，画面与意义联系很弱<br>2. 想象画面不准确，形成错误模型</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">研究证据：</strong><br>1. <a href="https://doi.org/10.1016/S0361-476X(02)00016-4" title="Ginns 等，2003，心理想象的条件效应" style="color: #0F4C81; text-decoration: none;">Ginns 等，2003，心理想象的条件效应</a><br>2. <a href="https://doi.org/10.1007/s10212-023-00754-w" title="想象促进学习的系统综述与元分析，2024" style="color: #0F4C81; text-decoration: none;">想象促进学习的系统综述与元分析，2024</a><br>3. 基础和材料复杂度会调节收益</td></tr><tr class="tr" data-priority="P4"><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P4</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">重读</strong><br>再次阅读，用于回看、核对和补充。</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 英语、历史、法律材料的首次理解<br>2. 数学、理科、工程、计算机定义与步骤<br>3. 医学和农学材料中的术语与条件……</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 初次理解确实不完整<br>2. 需要核对细节后马上进行回忆、解释或应用</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 已经熟悉，却把长期复习时间都用来反复看<br>2. 只看材料，不检查能否独立说出或应用</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">研究证据：</strong><br>1. <a href="https://learninglab.psych.purdue.edu/downloads/2006/2006_Roediger_Karpicke_PsychSci.pdf" title="Roediger 与 Karpicke，2006，重读与提取练习的延迟比较" style="color: #0F4C81; text-decoration: none;">Roediger 与 Karpicke，2006，重读与提取练习的延迟比较</a><br><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">研究边界：</strong><br>1. <a href="https://profiles.wustl.edu/en/publications/the-limited-benefits-of-rereading-educational-texts/" title="Callender 与 McDaniel，2009，重读教材文本的有限收益" style="color: #0F4C81; text-decoration: none;">Callender 与 McDaniel，2009，重读教材文本的有限收益</a></td></tr><tr class="tr" data-priority="P4"><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">P4</strong></td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">自行画线／高亮</strong><br>标记重要词句，方便定位和回看。</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 英语、历史、法律长文中的论点和证据<br>2. 数学、理科、工程、计算机材料中的定义和数据<br>3. 医学、农学章节中的术语、流程和警示条件……</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 已经具备一定的重点识别能力<br>2. 需要之后快速定位原文</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;">1. 大段涂满，无法区分主次<br>2. 用高亮代替回忆和应用</td><td class="td" style="border: 1px solid #dfdfdf; padding: 0.25em 0.5em; color: #3f3f3f; word-break: keep-all;"><strong style="color: #0F4C81; font-weight: bold; font-size: inherit;">研究证据：</strong><br>1. <a href="https://link.springer.com/article/10.1007/s10648-021-09654-1" title="Ponce 等，2022，高亮元分析" style="color: #0F4C81; text-decoration: none;">Ponce 等，2022，高亮元分析</a><br>2. 学习者自行高亮对记忆有总体收益<br>3. 对理解的收益不显著。教师提供的高亮结果更稳定</td></tr></tbody>
+          </table>
+        </section>
+      <h2 class="h2" data-heading="true" style="display: block; padding: 0.2em 0; padding-bottom: 0; margin: 0 auto 20px; width: 100%; color: #0F4C81; font-size: 20px; font-weight: bold; letter-spacing: 0.578px; line-height: 1.7; border-bottom: 2px solid #E4B1A0; text-align: left;">使用顺序</h2><p class="p" style="margin: 20px 0; letter-spacing: 0.1em; color: #3f3f3f; line-height: 2; letter-spacing: 0px; font-size: 15px; font-weight: 400; word-break: break-all;">先用 P1。新程序、新题型和机制理解加 P2；材料有明确用途时选 P3；组合时按“自测—反馈—间隔”执行。</p>
+
+
+
+
+
+  </section>
+  </div>
+</body>
+</html>
